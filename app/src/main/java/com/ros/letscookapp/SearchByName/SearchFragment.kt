@@ -26,12 +26,12 @@ class SearchFragment : Fragment() {
     private lateinit var rv: RecyclerView
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         binding = FragmentSearchBinding.inflate(inflater)
-        sharedPref= SharedPref(requireContext())
+        sharedPref = SharedPref(requireContext())
 
         val service = ApiClient.getApiClient(requireContext())?.create(SearchApiService::class.java)
         viewModel = ViewModelProvider(this).get(SearchViewModel::class.java)
@@ -40,11 +40,11 @@ class SearchFragment : Fragment() {
             viewModel.setService(service)
         }
         binding.btnSearch.setOnClickListener {
-             sharedPref.putString(Constants.PREF_SEARCH,binding.etSearch.text.toString())
+            sharedPref.putString(Constants.PREF_SEARCH, binding.etSearch.text.toString())
             viewModel.callApi()
         }
         rv = binding.rvSearch
-        rv.adapter = MealsAdapter(arrayListOf(), object : MealsAdapter.OnAdapterListenerMeals{
+        rv.adapter = MealsAdapter(arrayListOf(), object : MealsAdapter.OnAdapterListenerMeals {
             override fun onClick(meals: MealsModel) {
                 sharedPref.putString(Constants.PREF_ID_MEAL, meals.id)
                 startActivity(Intent(requireContext(), DetailsActivity::class.java))
@@ -55,7 +55,8 @@ class SearchFragment : Fragment() {
         subscribeLiveData()
         return binding.root
     }
-    private fun subscribeLiveData(){
+
+    private fun subscribeLiveData() {
         viewModel.isResponseSearch.observe(viewLifecycleOwner, Observer {
             (binding.rvSearch.adapter as MealsAdapter).addList(it)
 

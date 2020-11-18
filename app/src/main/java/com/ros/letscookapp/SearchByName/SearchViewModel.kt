@@ -9,29 +9,29 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class SearchViewModel: ViewModel() {
+class SearchViewModel : ViewModel() {
     val isResponseSearch = MutableLiveData<List<MealsModel>>()
     private lateinit var service: SearchApiService
     private lateinit var sharedPref: SharedPref
 
-    fun setService(service: SearchApiService){
+    fun setService(service: SearchApiService) {
         this.service = service
     }
 
-    fun setSharedPref(sharedPref: SharedPref){
+    fun setSharedPref(sharedPref: SharedPref) {
         this.sharedPref = sharedPref
     }
 
-    fun callApi(){
+    fun callApi() {
         var s = sharedPref.getString(Constants.PREF_SEARCH)
-        service.getSearch(s).enqueue(object : Callback<SearchResponse>{
+        service.getSearch(s).enqueue(object : Callback<SearchResponse> {
             override fun onFailure(call: Call<SearchResponse>, t: Throwable) {
 
             }
 
             override fun onResponse(
-                call: Call<SearchResponse>,
-                response: Response<SearchResponse>
+                    call: Call<SearchResponse>,
+                    response: Response<SearchResponse>
             ) {
                 val list = response.body()?.meals?.map {
                     MealsModel(it.idMeal.orEmpty(), it.strMeal.orEmpty(), it.strMealThumb.orEmpty())

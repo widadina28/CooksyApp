@@ -57,8 +57,15 @@ class DetailsActivity : AppCompatActivity() {
                     it.meals[0].strIngredient11, it.meals[0].strIngredient12, it.meals[0].strIngredient13, it.meals[0].strIngredient14,
                     it.meals[0].strIngredient15, it.meals[0].strIngredient16, it.meals[0].strIngredient17, it.meals[0].strIngredient18,
                     it.meals[0].strIngredient20)
-            var numbI = ingredients.indexOf("")-1
-            var ingredientsI = ingredients.slice(0..numbI)
+            var numbI : Int? = null
+            if(ingredients.contains("")) {
+                numbI = ingredients.indexOf("")-1
+            } else if (ingredients.contains(" ")) {
+                numbI = ingredients.indexOf(" ")-1
+            } else if (ingredients.contains("null")) {
+                numbI = ingredients.indexOf("null")-1
+            }
+            var ingredientsI = ingredients.slice(0..numbI!!)
 
             var dataIngredients = ingredientsI.map {
                 IngredientsModel(it)
@@ -76,18 +83,16 @@ class DetailsActivity : AppCompatActivity() {
                     it.meals[0].strMeasure18, it.meals[0].strMeasure19, it.meals[0].strMeasure20)
             var numbM : Int? = null
              if(measure.contains("")) {
-
                  numbM = measure.indexOf("")-1
              } else if (measure.contains(" ")) {
                  numbM = measure.indexOf(" ")-1
+             } else if (measure.contains("null")) {
+                 numbM = measure.indexOf("null")-1
              }
-            Log.d("numbM", "$numbM")
-
 
 
             var measureM = measure.slice(0..numbM!!)
-            Log.d("measure", "$measure")
-            Log.d("measureM","$measureM")
+            Log.d("measureM", "$measureM")
 
 
             var dataMeasure = measureM.map {

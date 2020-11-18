@@ -19,7 +19,7 @@ class CategoryAdapter(var datameals: ArrayList<CategoryModel>, var listener: OnA
     override fun onBindViewHolder(holder: HolderFood, position: Int) {
         val meals = datameals[position]
         Picasso.get().load(meals.image).into(holder.view.img_meals)
-        holder.view.meals_name.text= meals.name
+        holder.view.meals_name.text = meals.name
         holder.view.img_meals.setOnClickListener {
             listener.onClick(meals)
         }

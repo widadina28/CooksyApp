@@ -9,7 +9,7 @@ import com.ros.letscookapp.Bottomnav.BottomNavActivity
 import com.ros.letscookapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var binding : ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
     private val timesplash: Long = 3000
 
 

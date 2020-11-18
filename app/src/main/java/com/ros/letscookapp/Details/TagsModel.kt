@@ -1,5 +1,5 @@
 package com.ros.letscookapp.Details
 
-data class TagsModel (
+data class TagsModel(
         val tags: String
 )

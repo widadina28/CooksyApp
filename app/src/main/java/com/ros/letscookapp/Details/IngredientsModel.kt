@@ -1,4 +1,5 @@
 package com.ros.letscookapp.Details
-data class IngredientsModel (
+
+data class IngredientsModel(
         val ingredient: String?
 )

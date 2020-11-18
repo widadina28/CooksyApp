@@ -8,7 +8,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class HomeViewModel: ViewModel() {
+class HomeViewModel : ViewModel() {
     val isResponseAllMeals = MutableLiveData<List<CategoryModel>>()
     private lateinit var service: HomeApiService
 
@@ -17,7 +17,7 @@ class HomeViewModel: ViewModel() {
     }
 
     fun callApi() {
-        service.getAllMeals().enqueue(object : Callback<CategoryResponse>{
+        service.getAllMeals().enqueue(object : Callback<CategoryResponse> {
             override fun onFailure(call: Call<CategoryResponse>, t: Throwable) {
 
             }

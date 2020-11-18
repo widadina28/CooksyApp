@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ros.letscookapp.R
 import kotlinx.android.synthetic.main.item_measure.view.*
 
-class MeasureAdapter(var measure: List<MeasureModel>) : RecyclerView.Adapter<MeasureAdapter.HolderMeasure>(){
+class MeasureAdapter(var measure: List<MeasureModel>) : RecyclerView.Adapter<MeasureAdapter.HolderMeasure>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MeasureAdapter.HolderMeasure {
         return HolderMeasure(LayoutInflater.from(parent.context).inflate(R.layout.item_measure, parent, false))
 
@@ -19,6 +19,7 @@ class MeasureAdapter(var measure: List<MeasureModel>) : RecyclerView.Adapter<Mea
         val measure = measure[position]
         holder.view.tv_measure.text = measure.measure
     }
-    class HolderMeasure(val view:View) : RecyclerView.ViewHolder(view)
+
+    class HolderMeasure(val view: View) : RecyclerView.ViewHolder(view)
 
 }

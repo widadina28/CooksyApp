@@ -8,5 +8,5 @@ import retrofit2.http.Query
 
 interface MealsApiService {
     @GET("filter.php")
-    fun getMealsByCategory(@Query("c") category: String?) : Call<MealsByCategoryResponse>
+    fun getMealsByCategory(@Query("c") category: String?): Call<MealsByCategoryResponse>
 }

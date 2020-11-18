@@ -3,37 +3,38 @@ package com.ros.letscookapp.SharedPreferences
 import android.content.Context
 import android.content.SharedPreferences
 
-class SharedPref (context: Context) {
-    private val Prefs_Name ="shared_pref"
-    private val sharedpref : SharedPreferences
+class SharedPref(context: Context) {
+    private val Prefs_Name = "shared_pref"
+    private val sharedpref: SharedPreferences
     val editor: SharedPreferences.Editor
 
     init {
-        sharedpref=context.getSharedPreferences(Prefs_Name, Context.MODE_PRIVATE)
+        sharedpref = context.getSharedPreferences(Prefs_Name, Context.MODE_PRIVATE)
         editor = sharedpref.edit()
     }
 
-    fun putString(key: String, value:String?) {
+    fun putString(key: String, value: String?) {
         editor.putString(key, value)
-            .apply()
+                .apply()
     }
 
 
-    fun getString(key: String) : String? {
+    fun getString(key: String): String? {
         return sharedpref.getString(key, null)
     }
 
-    fun putBoolean(key: String, value:Boolean) {
+    fun putBoolean(key: String, value: Boolean) {
         editor.putBoolean(key, value)
-            .apply()
+                .apply()
     }
 
-    fun getBoolean(key: String) : Boolean {
+    fun getBoolean(key: String): Boolean {
         return sharedpref.getBoolean(key, false)
     }
-    fun clear (){
+
+    fun clear() {
         editor.clear()
-            .apply()
+                .apply()
     }
 
 }

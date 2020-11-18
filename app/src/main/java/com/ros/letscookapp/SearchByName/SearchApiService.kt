@@ -6,5 +6,5 @@ import retrofit2.http.Query
 
 interface SearchApiService {
     @GET("search.php")
-    fun getSearch(@Query("s") search: String?) : Call<SearchResponse>
+    fun getSearch(@Query("s") search: String?): Call<SearchResponse>
 }

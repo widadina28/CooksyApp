@@ -34,7 +34,7 @@ class MealsActivity : AppCompatActivity() {
         }
         viewModel.setSharedPref(sharedPref)
         rv = binding.rvMeals
-        rv.adapter = MealsAdapter(arrayListOf(), object : MealsAdapter.OnAdapterListenerMeals{
+        rv.adapter = MealsAdapter(arrayListOf(), object : MealsAdapter.OnAdapterListenerMeals {
             override fun onClick(meals: MealsModel) {
                 sharedPref.putString(Constants.PREF_ID_MEAL, meals.id)
                 startActivity(Intent(this@MealsActivity, DetailsActivity::class.java))
@@ -45,7 +45,8 @@ class MealsActivity : AppCompatActivity() {
         viewModel.callApi()
         subscribeLiveData()
     }
-    private fun subscribeLiveData(){
+
+    private fun subscribeLiveData() {
         viewModel.isMealsResponse.observe(this, Observer {
             (binding.rvMeals.adapter as MealsAdapter).addList(it)
         })

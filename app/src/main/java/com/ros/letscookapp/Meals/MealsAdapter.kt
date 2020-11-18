@@ -10,10 +10,10 @@ import kotlinx.android.synthetic.main.item_category.view.*
 import kotlinx.android.synthetic.main.item_meals.view.*
 
 class MealsAdapter(var datameals: ArrayList<MealsModel>, var listener: OnAdapterListenerMeals) :
-RecyclerView.Adapter<MealsAdapter.HolderMeals>(){
+        RecyclerView.Adapter<MealsAdapter.HolderMeals>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MealsAdapter.HolderMeals {
         return HolderMeals(
-            LayoutInflater.from(parent.context).inflate(R.layout.item_meals, parent, false)
+                LayoutInflater.from(parent.context).inflate(R.layout.item_meals, parent, false)
         )
     }
 
