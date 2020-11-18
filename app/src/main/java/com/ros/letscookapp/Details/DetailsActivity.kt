@@ -92,7 +92,6 @@ class DetailsActivity : AppCompatActivity() {
 
 
             var measureM = measure.slice(0..numbM!!)
-            Log.d("measureM", "$measureM")
 
 
             var dataMeasure = measureM.map {
