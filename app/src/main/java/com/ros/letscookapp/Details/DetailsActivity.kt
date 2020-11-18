@@ -51,7 +51,7 @@ class DetailsActivity : AppCompatActivity() {
             Picasso.get().load(it.meals[0].strMealThumb).into(binding.ivDetails)
             binding.tvInstructionDetail.text = it.meals[0].strInstructions
 
-            var ingredients = arrayListOf<String>(it.meals[0].strIngredient1, it.meals[0].strIngredient2,
+            var ingredients = arrayListOf<String?>(it.meals[0].strIngredient1, it.meals[0].strIngredient2,
                     it.meals[0].strIngredient3, it.meals[0].strIngredient4, it.meals[0].strIngredient5, it.meals[0].strIngredient6,
                     it.meals[0].strIngredient7, it.meals[0].strIngredient8, it.meals[0].strIngredient9, it.meals[0].strIngredient10,
                     it.meals[0].strIngredient11, it.meals[0].strIngredient12, it.meals[0].strIngredient13, it.meals[0].strIngredient14,
@@ -62,8 +62,8 @@ class DetailsActivity : AppCompatActivity() {
                 numbI = ingredients.indexOf("")-1
             } else if (ingredients.contains(" ")) {
                 numbI = ingredients.indexOf(" ")-1
-            } else if (ingredients.contains("null")) {
-                numbI = ingredients.indexOf("null")-1
+            } else if (ingredients.contains(null)) {
+                numbI = ingredients.indexOf(null)-1
             }
             var ingredientsI = ingredients.slice(0..numbI!!)
 
@@ -76,7 +76,7 @@ class DetailsActivity : AppCompatActivity() {
             binding.rvIngredients.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
 
 
-            var measure = arrayListOf<String>(it.meals[0].strMeasure1, it.meals[0].strMeasure2, it.meals[0].strMeasure3,
+            var measure = arrayListOf<String?>(it.meals[0].strMeasure1, it.meals[0].strMeasure2, it.meals[0].strMeasure3,
                     it.meals[0].strMeasure4, it.meals[0].strMeasure5, it.meals[0].strMeasure6, it.meals[0].strMeasure7, it.meals[0].strMeasure8,
                     it.meals[0].strMeasure9, it.meals[0].strMeasure10, it.meals[0].strMeasure11, it.meals[0].strMeasure12, it.meals[0].strMeasure13,
                     it.meals[0].strMeasure14, it.meals[0].strMeasure15, it.meals[0].strMeasure17,
@@ -86,12 +86,12 @@ class DetailsActivity : AppCompatActivity() {
                  numbM = measure.indexOf("")-1
              } else if (measure.contains(" ")) {
                  numbM = measure.indexOf(" ")-1
-             } else if (measure.contains("null")) {
-                 numbM = measure.indexOf("null")-1
+             } else if (measure.contains(null)) {
+                 numbM = measure.indexOf(null)-1
              }
 
 
-            var measureM = measure.slice(0..numbM!!)
+            var measureM = measure?.slice(0..numbM!!)
 
 
             var dataMeasure = measureM.map {
