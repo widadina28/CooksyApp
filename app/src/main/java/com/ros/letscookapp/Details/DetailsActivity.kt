@@ -3,6 +3,7 @@ package com.ros.letscookapp.Details
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -56,8 +57,10 @@ class DetailsActivity : AppCompatActivity() {
                     it.meals[0].strIngredient11, it.meals[0].strIngredient12, it.meals[0].strIngredient13, it.meals[0].strIngredient14,
                     it.meals[0].strIngredient15, it.meals[0].strIngredient16, it.meals[0].strIngredient17, it.meals[0].strIngredient18,
                     it.meals[0].strIngredient20)
+            var numbI = ingredients.indexOf("")-1
+            var ingredientsI = ingredients.slice(0..numbI)
 
-            var dataIngredients = ingredients.map {
+            var dataIngredients = ingredientsI.map {
                 IngredientsModel(it)
             }
 
@@ -71,8 +74,23 @@ class DetailsActivity : AppCompatActivity() {
                     it.meals[0].strMeasure9, it.meals[0].strMeasure10, it.meals[0].strMeasure11, it.meals[0].strMeasure12, it.meals[0].strMeasure13,
                     it.meals[0].strMeasure14, it.meals[0].strMeasure15, it.meals[0].strMeasure17,
                     it.meals[0].strMeasure18, it.meals[0].strMeasure19, it.meals[0].strMeasure20)
+            var numbM : Int? = null
+             if(measure.contains("")) {
 
-            var dataMeasure = measure.map {
+                 numbM = measure.indexOf("")-1
+             } else if (measure.contains(" ")) {
+                 numbM = measure.indexOf(" ")-1
+             }
+            Log.d("numbM", "$numbM")
+
+
+
+            var measureM = measure.slice(0..numbM!!)
+            Log.d("measure", "$measure")
+            Log.d("measureM","$measureM")
+
+
+            var dataMeasure = measureM.map {
                 MeasureModel(it)
             }
             rvM = MeasureAdapter(dataMeasure)

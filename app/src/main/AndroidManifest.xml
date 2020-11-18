@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_cooksy_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LetsCookApp">
-        <activity android:name=".Youtube.YoutubeActivity"></activity>
+        <activity android:name=".WelcomeActivity"></activity>
+        <activity android:name=".Youtube.YoutubeActivity" />
         <activity android:name=".Details.DetailsActivity" />
         <activity android:name=".Meals.MealsActivity" />
         <activity android:name=".Bottomnav.BottomNavActivity" />

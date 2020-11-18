@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         Handler().postDelayed({
-            startActivity(Intent(this, BottomNavActivity::class.java))
+            startActivity(Intent(this, WelcomeActivity::class.java))
         }, timesplash)
     }
 }
